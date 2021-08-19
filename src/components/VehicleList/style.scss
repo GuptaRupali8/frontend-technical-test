@@ -1,3 +1,127 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+// .flex-grid {
+//   display: flex;
+//   width: 100%;
+//   margin-top: 2%;
+//   background-color: cadetblue;
+ 
+// }
+.flex-grid{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 2%;
+  background-color: rgb(255, 255, 255);
+  justify-content: center;
+}
+.flex-grid{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 0rem;
+}
+.card {
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  // margin: 5px;
+  // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  padding: 5px;
+  text-align: center;
+}
+@keyframes fadeInAnimation{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.card-img{
+  width: 100%;
+}
+.card:hover{
+ box-shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.card-name{
+  width: 100%;
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+h3{
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 2%;
+  border-top:1px solid black;
+  border-bottom: 1px solid black;
+}
+.card-info p{
+  padding:5%;
+
+}
 .VehicleList {
   width: 100%;
 }
+
+
+// MEDIA QUERY FOR 900PX OR LESS FOR TABLET VIEW (TWO COLOUMN)
+
+@media screen and (max-width: 900px) {
+  .flex-grid{
+    grid-template-columns: repeat(2,1fr);
+  }
+  
+}
+
+// MEDIA QUERY FOR 520PX OR LESS FOR MOBILE VIEW 
+@media screen and (max-width: 520px) {
+  .flex-grid{
+    grid-template-columns: repeat(1,1fr);
+    font-size: 13px;
+    height: 30%;
+  }
+  .card{
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+  }
+  .card-img{
+    width: 35%;
+  }
+  h3{
+    margin-left: 5%;
+    border-top:none;
+    border-bottom: none;
+    text-align: left;
+  }
+  .card-info {
+    align-items: baseline;
+    justify-content: left;
+  }
+}
+
+
+
+
+

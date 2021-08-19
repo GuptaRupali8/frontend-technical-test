@@ -15,26 +15,37 @@ export default function VehicleList() {
   }
 
   return (
-    <div data-testid="results">
-      <p>List of vehicles will be displayed here</p>
-      <p>
-        Visit
-        <a href="/api/vehicles.json" target="_blank"> /api/vehicles.json</a>
-        {' '}
-        (main endpoint)
-      </p>
-      <p>
-        Visit
-        <a href="/api/vehicle_fpace.json" target="_blank">/api/vehicle_fpace.json</a>
-        {' '}
-        (detail endpoint - apiUrl)
-      </p>
-      <p>
-        Visit
-        <a href="/api/vehicle_xf.json" target="_blank">/api/vehicle_xf.json</a>
-        {' '}
-        (vehicle without any price)
-      </p>
+    
+    <div className="flex-grid" data-testid="results">
+      {vehicles && vehicles.map((car) =>{
+        return(
+        <div className="card" key={car.id}>
+            <img  className="card-img" src={car.imageBig} />
+            <div className="card-info">
+              <h3 className="card-name" id="vehicleName">{car.name} name</h3>
+               <p>{car.modelYear}</p>
+               {!car.price ? <p className="price">Price unavailable</p> : <p>From {car.price}</p>} 
+               <p className="description">{car.description}</p>
+               <p>{car.bodystyles}</p>
+             </div>
+            {/* card div end */}
+          </div>
+        )
+        
+      })}
+      
+      
+      
+    
+    
+    
+    
+    
     </div>
+     /* first closing div  */
+
+   
+    
   );
+  // closing return
 }
